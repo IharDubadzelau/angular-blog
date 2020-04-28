@@ -2,6 +2,16 @@
   <h2>Войти в панель администратора</h2>
 
   <div
+    class="alert alert-danger"
+    *ngIf="auth.error$ | async as error"
+  >{{error}}</div>
+
+  <div
+    class="alert alert-info"
+    *ngIf="msg"
+  >{{msg}}</div>
+
+  <div
     class="form-control"
     [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
   >
@@ -44,6 +54,6 @@
   <button
     type="submit"
     class="btn bg-primary"
-    [disabled]="form.invalid"
+    [disabled]="form.invalid || submitted"
   >Войти</button>
 </form>
