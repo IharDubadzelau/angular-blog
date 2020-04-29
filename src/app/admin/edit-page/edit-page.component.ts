@@ -55,7 +55,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
     this.uSub = this.postsService.update( {
       ...this.post,
       text: this.form.value.text,
-      title: this.form.value.title,
+      title: this.form.value. title,
     }).subscribe( () => {
       this.submitted = false;
       this.alert.success('Пост был успешно обновлен !!!');
