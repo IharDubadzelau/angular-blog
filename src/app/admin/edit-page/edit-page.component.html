@@ -1,1 +1,47 @@
-<p>edit-page works!</p>
+<div *ngIf="form; else loading">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div
+      class="form-control"
+      [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}"
+    >
+      <label for="title">Название поста:</label>
+      <input id="title" type="text" formControlName="title">
+      <div
+        *ngIf="form.get('title').touched && form.get('title').invalid"
+        class="validator"
+      >
+        <small *ngIf="form.get('title').errors.required">
+          Введите название поста
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <label>Контент поста:</label>
+      <quill-editor formControlName="text"></quill-editor>
+    </div>
+
+    <div
+      class="form-control"
+    >
+      <label>Автор поста:</label>
+      <small>
+       {{post.author}}
+      </small>
+    </div>
+
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid || submitted"
+    >Обновить пост</button>
+
+
+  </form>
+</div>
+
+<ng-template #loading>
+  <p class="text-center">Идет загрузка...</p>
+</ng-template>
