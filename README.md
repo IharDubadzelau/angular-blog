@@ -1,3 +1,16 @@
+# APP Angular-blog
+
+deploy app
+
+https://angular-blog-snik.firebaseapp.com 
+
+admin 
+https://angular-blog-snik.firebaseapp.com/admin 
+
+user: user123@user.com
+pas: user123
+
+
 # AngularBlog
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
